@@ -1,0 +1,17 @@
+
+
+
+#rbenv
+
+if [ -d $HOME/.rbenv/bin ] ; then
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+fi
+
+alias la='ls -la'
+alias ll='ls -l'
+alias nave=$HOME/opt/nave/nave.sh
+alias g=git
+
+
+
