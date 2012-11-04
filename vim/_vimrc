@@ -5,10 +5,10 @@ filetype off
 "NeoBundle
 
 if has('vim_starting')
-  set runtimepath+=~/dotfiles/vimfiles/bundle/neobundle.vim/
+  set runtimepath+=~/dotfiles/vim/vimfiles/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/dotfiles/vimfiles/bundle/'))
+call neobundle#rc(expand('~/dotfiles/vim/vimfiles/bundle/'))
 
 NeoBundle "rails.vim"
 NeoBundle "Tagbar"
