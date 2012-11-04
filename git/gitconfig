@@ -1,0 +1,10 @@
+[color]
+	ui = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	glog = log --all --graph --oneline
+[core]
+	editor = /usr/bin/vim
