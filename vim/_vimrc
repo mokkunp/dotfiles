@@ -12,6 +12,11 @@ call neobundle#rc(expand('~/dotfiles/vim/vimfiles/bundle/'))
 
 NeoBundle "rails.vim"
 NeoBundle "Tagbar"
+NeoBundle "scrooloose/nerdtree"
+
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'jpo/vim-railscasts-theme'
+
 
 filetype plugin indent on
 
