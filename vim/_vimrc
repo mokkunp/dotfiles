@@ -10,6 +10,7 @@ endif
 
 call neobundle#rc(expand('~/dotfiles/vim/vimfiles/bundle/'))
 
+NeoBundle "Shougo/unite.vim.git"
 NeoBundle "rails.vim"
 NeoBundle "Tagbar"
 NeoBundle "scrooloose/nerdtree"
@@ -26,3 +27,19 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+
+
+"unite.vim
+"バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+"ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+"レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+"最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
