@@ -4,4 +4,11 @@
 autoload -U compinit
 compinit
 
+export EDITOR=vim
 
+alias ll='ls -l'
+alias gg='git lga'
+alias be='bundle exec'
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
