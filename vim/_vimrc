@@ -15,6 +15,7 @@ NeoBundle "rails.vim"
 NeoBundle "Tagbar"
 NeoBundle "scrooloose/nerdtree"
 NeoBundle "kien/ctrlp.vim"
+NeoBundle "tpope/vim-fugitive"
 
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'jpo/vim-railscasts-theme'
