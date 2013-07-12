@@ -23,8 +23,8 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle "rails.vim"
 NeoBundle "Tagbar"
 NeoBundle "scrooloose/nerdtree"
-NeoBundle "kien/ctrlp.vim"
-"nnoremap <C-p> :Unite file_rec/async<cr>
+"NeoBundle "kien/ctrlp.vim"
+nnoremap <C-p> :Unite file_rec/async<cr>
 NeoBundle "tpope/vim-fugitive"
 
 NeoBundle 'w0ng/vim-hybrid'
