@@ -53,6 +53,7 @@ set t_Co=256
 
 syntax on
 
+set laststatus=2
 
 "unite.vim
 "バッファ一覧
