@@ -14,7 +14,7 @@ NeoBundle "Shougo/unite.vim.git"
 NeoBundle "Shougo/vimfiler"
 NeoBundle "Shougo/vimshell"
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neocomplcache.vim'
 
 NeoBundle 'Shougo/vimproc', {
@@ -41,6 +41,11 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'mattn/emmet-vim'
+
+NeoBundle 'basyura/unite-rails'
+
+NeoBundle 'ngmy/vim-rubocop'
+NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
@@ -69,5 +74,31 @@ nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
+nnoremap ,m :Unite rails/model<CR>
+nnoremap ,c :Unite rails/controller<CR>
+nnoremap ,v :Unite rails/view<CR>
+nnoremap ,h :Unite rails/helper<CR>
+nnoremap ,i :Unite rails/javascript<CR>
+nnoremap ,y :Unite rails/stylesheet<CR>
+nnoremap ,s :Unite rails/spec<CR>
+
 "NERDCommenter
 map ,, <Plug>NERDCommenterToggle
+
+"Indent-guid
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgrey
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+"let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
+
+"vim-rubocop
+let g:vimrubocop_config = '~/.rubocop.yml'
+
+"syntastic
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
