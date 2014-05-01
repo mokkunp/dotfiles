@@ -24,7 +24,8 @@ alias nave=$HOME/opt/nave/nave.sh
 export PATH="/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$HOME/bin:$HOME/.cabal/bin:$PATH"
 eval "$(rbenv init -)"
 
-PS1="%F{green}%m%#%f "
+PROMPT='%F{green}%m%f%# '
+RPROMPT='[%~]'
 
 export LANG=ja_JP.UTF-8
 
