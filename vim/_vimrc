@@ -46,6 +46,7 @@ NeoBundle 'basyura/unite-rails'
 
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'rhysd/committia.vim'
 
 filetype plugin indent on
 
@@ -60,6 +61,9 @@ set t_Co=256
 syntax on
 
 set laststatus=2
+
+set guifont=Ricty\ Regular\ for\ Powerline:h14
+set guifontwide=Ricty\ Regular\ for\ Powerline:h14
 
 "unite.vim
 "バッファ一覧
