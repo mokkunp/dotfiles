@@ -1,18 +1,20 @@
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
 
-(package-initialize)
 
-(unless (require 'use-package nil t)
-  (defmacro use-package (&rest args)))
-
-(use-package pallet)
-(use-package ruby-mode)
-(use-package dash)
-(use-package magit)
+(el-get-bundle pallet)
+(el-get-bundle ruby-mode)
+(el-get-bundle dash)
+(el-get-bundle magit)
 
 ;カーソル移動
 (global-set-key "\C-h" 'delete-backward-char)
