@@ -8,7 +8,7 @@ if has('vim_starting')
   set runtimepath+=~/dotfiles/vim/vimfiles/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/dotfiles/vim/vimfiles/bundle/'))
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle "Shougo/unite.vim.git"
 NeoBundle "Shougo/vimfiler"
@@ -47,6 +47,8 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'rhysd/committia.vim'
+
+NeoBundle 'nixprime/cpsm'
 
 filetype plugin indent on
 
