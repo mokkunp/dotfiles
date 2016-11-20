@@ -13,17 +13,17 @@ bindkey -e
 alias ll='ls -l'
 alias gg='git lga'
 alias be='bundle exec'
-alias br='bundle exec rails'
+alias br='bin/rails'
 alias spec='bundle exec rspec'
 alias bake='bundle exec rake'
 alias brsp='bundle exec spring rails'
 alias specsp='bundle exec spring rspec'
 alias bakesp='bundle exec spring rake'
-alias nave=$HOME/opt/nave/nave.sh
 alias -s rb='ruby'
 alias mv='mv -i'
 
 export PATH="/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$HOME/bin:$HOME/.cabal/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 eval "$(rbenv init -)"
 
 export GREP_OPTIONS='--color=auto'
