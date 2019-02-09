@@ -22,78 +22,28 @@ alias bakesp='bundle exec spring rake'
 alias -s rb='ruby'
 alias mv='mv -i'
 
-export PATH="/usr/local/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:$HOME/bin:$HOME/.cabal/bin:$PATH"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="/usr/local/bin:$HOME/.rbenv/bin:$HOME/.pyenv/shims:$HOME/.goenv/shims:$HOME/.rbenv/shims:$HOME/.nodenv/shims:$HOME/bin:$HOME/.cabal/bin:/usr/local/sbin:$PATH"
 eval "$(rbenv init -)"
-
-export GREP_OPTIONS='--color=auto'
-
-is_git_repo() {
-  $(git rev-parse --is-inside-work-tree &> /dev/null)
-}
-
-is_git_dir() {
-  $(git rev-parse --is-inside-git-dir 2> /dev/null)
-}
-
-get_git_branch() {
-  local branch_name
-
-  # Get the short symbolic ref
-  branch_name=$(git symbolic-ref --quiet --short HEAD 2> /dev/null) ||
-    # If HEAD isn't a symbolic ref, get the short SHA
-  branch_name=$(git rev-parse --short HEAD 2> /dev/null) ||
-    # Otherwise, just give up
-  branch_name="(unknown)"
-
-  printf $branch_name
-}
-
-# Git status information
-prompt_git() {
-  local git_info git_state uc us ut st
-
-  if ! is_git_repo || is_git_dir; then
-    return 1
-  fi
-
-  git_info=$(get_git_branch)
-
-  # Check for uncommitted changes in the index
-  if ! $(git diff --quiet --ignore-submodules --cached); then
-    uc="+"
-  fi
-
-  # Check for unstaged changes
-  if ! $(git diff-files --quiet --ignore-submodules --); then
-    us="!"
-  fi
-
-  # Check for untracked files
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    ut="?"
-  fi
-
-  # Check for stashed files
-  if $(git rev-parse --verify refs/stash &>/dev/null); then
-    st="$"
-  fi
-
-  git_state=$uc$us$ut$st
-
-  # Combine the branch name and state information
-  if [ $git_state ]; then
-    git_info="$git_info[$git_state]"
-  fi
-
-  printf "${WHITE} on ${style_branch}${git_info}"
-}
+eval "$(goenv init -)"
+eval "$(nodenv init -)"
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
+export PATH=$HOME/Dropbox/app_config/shell/bin:$PATH
 
 
-PROMPT='[%F{green}%m%f %c]%# '
-#PS1="[%F{green}%m%f %c] [%~] ${prompt_git}
-#%# "
-RPROMPT='[%~]'
+#export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_SHOWCOLORHINTS=true
+source ~/.git-prompt.sh
+
+setopt PROMPT_SUBST
+#setopt PROMPT_SUBST;PS1='[%c$(__git_ps1 " (%s)")]\$ '
+#setopt PROMPT_SUBST;PS1='[%c$(__git_ps1 " (")%F{green}$(__git_ps1 "%s")%f$(__git_ps1 ")")]\$ '
+#PROMPT='[%c$(__git_ps1 " (")%F{green}$(__git_ps1 "%s")%f$(__git_ps1 ")")]\$ '
+PROMPT='[%c%F{green}$(__git_ps1 " %s")%f]\$ '
+#PROMPT='[%c$(__git_ps1 " (")%F{green}$(__git_ps1 "%s")%f$(__git_ps1 ")")]\$ '
+#PROMPT='[%F{green}%c%f)]'
+#precmd () { __git_ps1 "%n" ":%F{1}%~%f$ " "|%s" }
+#precmd () { __git_ps1 "%c" " $" " %s" }
 
 export LANG=ja_JP.UTF-8
 
@@ -107,9 +57,7 @@ fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# DOCKER ENV
-#export DOCKER_HOST=
-#export DOCKER_CERT_PATH=
-#export DOCKER_TLS_VERIFY=
+#direnv
+eval "$(direnv hook zsh)"
 
 

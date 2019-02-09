@@ -3,10 +3,36 @@
 [alias]
 	st = status
 	ci = commit
+  amd = commit --amend
+	di = diff
 	co = checkout
+  cim = commit -m
+  ciam = commit -a -m
 	br = branch
+  dc = diff --cached
+  rbc = rebase --continue
+  mgc = merge --continue
+  unadd = reset HEAD
+  unstage = reset HEAD
+  rh = reset HEAD
+  rhd = reset --hard
+  rhh = reset --hard HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ls = log --stat
+  ld = log -p -1
+  ld2 = log -p -2
+  lp = log -p
+  lp1 = log -p -1
+  lp2 = log -p -2
+	delbr = git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
 [core]
 	editor = /usr/bin/vim
-	excludesfile = $HOME/.gitignore
+	excludesfile = ~/.gitignore_global
+	pager = less -x2
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
