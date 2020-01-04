@@ -21,6 +21,7 @@ alias specsp='bundle exec spring rspec'
 alias bakesp='bundle exec spring rake'
 alias -s rb='ruby'
 alias mv='mv -i'
+alias kc='kubectl'
 
 export PATH="/usr/local/bin:$HOME/.rbenv/bin:$HOME/.pyenv/shims:$HOME/.goenv/shims:$HOME/.rbenv/shims:$HOME/.nodenv/shims:$HOME/bin:$HOME/.cabal/bin:/usr/local/sbin:$PATH"
 export GOPATH=$HOME/.go
@@ -82,6 +83,7 @@ if type "direnv" > /dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
+export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 
 # The next line updates PATH for the Google Cloud SDK.
